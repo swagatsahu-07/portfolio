@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'  
 import Aurora from './Aurora';
-import About from './About';
+
 
 
 
@@ -23,8 +23,8 @@ const Nav = () => {
       <div className='flex justify-center items-center gap-10'>
         <NavLink to='/about' className={
     `text-gray-300 hover:text-gray-100`}>About</NavLink>
-    <NavLink to='/pricing' className={
-    `text-gray-300 hover:text-gray-100`}>Pricing</NavLink>
+    <NavLink to='/project' className={
+    `text-gray-300 hover:text-gray-100`}>Project</NavLink>
     <NavLink to='/changelog' className={
     `text-gray-300 hover:text-gray-100`}>Changelog</NavLink>
     <NavLink to='/contact' className={

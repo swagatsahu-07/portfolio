@@ -3,33 +3,28 @@ import Typewriter from 'typewriter-effect';
 
 const Home = () => {
   return (
-    <div className='absolute inset-0 flex flex-col justify-center items-center text-center z-10'>
+    <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10">
       <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white/40 via-white/60 to-white/40">
-             <Typewriter
-          options={{
-            loop: true, // 🔁 enables infinite loop
-            delay: 75,  // typing speed
-            deleteSpeed: 50, // deleting speed
-            autoStart: true,
-          }}
-          onInit={(typewriter) => {
-            typewriter
-              .typeString(`Hello I'm <br> Swagat Sahu`)
-              .pauseFor(1500)
-              .deleteAll()
-              .typeString(`I'm a Web Designer.`)
-              .pauseFor(1500)
-              .deleteAll()
-              .typeString(`I'm a Frontend Developer`)
-              .pauseFor(1500)
-              .deleteAll()
-              .start();
-          }}
-        />
-     
-
+        Swagat Sahu{" "}
+        <span className="text-white">
+          <Typewriter
+            options={{
+              strings: [
+                "a Web Designer",
+                "a Frontend Developer",
+                "a Creative Coder",
+              ],
+              autoStart: true,
+              loop: true,
+              deleteSpeed: 40,
+              delay: 80,
+            }}
+          />
+        </span>
       </h1>
-      
+      <p className="text-gray-300 text-lg max-w-xl mt-5">
+        I create responsive, elegant web experiences that merge design and technology seamlessly.
+      </p>
     </div>
   )
 }

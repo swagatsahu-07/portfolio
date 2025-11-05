@@ -1,9 +1,9 @@
 import React from 'react'
 import Typewriter from 'typewriter-effect';
 
-const Pricing = () => {
+const Project = () => {
   return (
-     <div className='absolute inset-0 flex flex-col justify-center items-center text-center z-10'>
+    <div className='absolute inset-0 flex flex-col justify-center items-center text-center z-10'>
       <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white/40 via-white/60 to-white/40">
              <Typewriter
           options={{
@@ -36,4 +36,4 @@ const Pricing = () => {
   )
 }
 
-export default Pricing
+export default Project
