@@ -6,7 +6,7 @@ const Nav = () => {
    <>
    <div className='relative w-full h-screen bg-[#000000] overflow-hidden  no-scrollbar'>
   
-  <div className='absolute top-0 left-0 w-full flex justify-center items-center gap-80 py-6 z-20'>
+  <div className='absolute top-0 left-0 w-full flex justify-center items-center gap-60 py-6 z-20'>
     <h1 className='text-gray-300 text-xl'><NavLink to='/' className={
     `text-gray-300 hover:text-red-500`}>Swagat.</NavLink></h1>
       <div className='flex justify-center items-center gap-10'>

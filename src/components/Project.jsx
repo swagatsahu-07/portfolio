@@ -14,15 +14,8 @@ const Project = () => {
           }}
           onInit={(typewriter) => {
             typewriter
-              .typeString('Hello World!')
+              .typeString('Coming Soon!')
               .pauseFor(1500)
-              .deleteAll()
-              .typeString('Welcome to the Future!')
-              .pauseFor(1500)
-              .deleteAll()
-              .typeString('Powered by Human-Centered AI 🚀')
-              .pauseFor(1500)
-              .deleteAll()
               .start();
           }}
         />

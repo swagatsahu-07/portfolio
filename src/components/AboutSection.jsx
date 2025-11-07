@@ -1,53 +1,50 @@
 import React from 'react'
-import { Code2, Zap, Layout, Palette } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 const AboutSection = () => {
   return (
-     <section className="h-screen bg-[#111111]  text-white py-24 px-6">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-5xl font-bold mb-8">
-          Crafting digital experiences with precision & creativity
-        </h2>
-        <p className="text-gray-400 text-lg mb-16">
-          I design and develop modern, responsive web applications that deliver
-          both performance and beauty.
-        </p>
+     <>
+     <div className="w-[90%] md:w-[400px] rounded-2xl p-8 shadow-lg hover:shadow-cyan-500/20 transition-all mx-auto text-center">
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          <div className="flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
-            <Code2 className="w-12 h-12 text-indigo-400 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Full Stack</h3>
-            <p className="text-gray-400">
-              Building dynamic, scalable apps with MERN stack.
-            </p>
-          </div>
+      <h2 className="text-2xl font-semibold text-gray-300 mb-6">
+        Connect With Me
+      </h2>
 
-          <div className="flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
-            <Layout className="w-12 h-12 text-pink-400 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Frontend Design</h3>
-            <p className="text-gray-400">
-              Clean, responsive UI with modern animations.
-            </p>
-          </div>
+      <div className="flex justify-center gap-8">
 
-          <div className="flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
-            <Palette className="w-12 h-12 text-green-400 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">UI/UX Vision</h3>
-            <p className="text-gray-400">
-              Creating interfaces that feel intuitive and elegant.
-            </p>
-          </div>
+        {/* Gmail */}
+        <a
+          href="mailto:swagatsahu9090@gmail.com"
+          className="flex flex-col items-center hover:scale-110 transition"
+        >
+          <SiGmail className="text-red-500 text-5xl" />
+          <span className="text-gray-300 mt-2 text-sm">Gmail</span>
+        </a>
 
-          <div className="flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
-            <Zap className="w-12 h-12 text-yellow-400 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Performance</h3>
-            <p className="text-gray-400">
-              Optimized code and fast loading experiences.
-            </p>
-          </div>
-        </div>
+        {/* GitHub */}
+        <a
+          href="https://github.com/swagatsahu-07"
+          target="_blank"
+          className="flex flex-col items-center hover:scale-110 transition"
+        >
+          <FaGithub className="text-gray-300 text-5xl" />
+          <span className="text-gray-300 mt-2 text-sm">GitHub</span>
+        </a>
+
+        {/* LinkedIn */}
+        <a
+          href="https://www.linkedin.com/in/swagatsahu2001/"
+          target="_blank"
+          className="flex flex-col items-center hover:scale-110 transition"
+        >
+          <FaLinkedin className="text-blue-500 text-5xl" />
+          <span className="text-gray-300 mt-2 text-sm">LinkedIn</span>
+        </a>
+
       </div>
-    </section>
+    </div>
+     </>
   )
 }
 
