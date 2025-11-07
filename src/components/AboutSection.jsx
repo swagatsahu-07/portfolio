@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react'
 import { Code2, Zap, Layout, Palette } from "lucide-react";
 
-const FirstSection = () => {
+const AboutSection = () => {
   return (
-    <>
-    <section className="h-full bg-[#111111]  text-white py-24 px-6">
+     <section className="h-screen bg-[#111111]  text-white py-24 px-6">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-5xl font-bold mb-8">
           Crafting digital experiences with precision & creativity
@@ -49,8 +48,7 @@ const FirstSection = () => {
         </div>
       </div>
     </section>
-    </>
-  );
-};
+  )
+}
 
-export default FirstSection;
+export default AboutSection
