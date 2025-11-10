@@ -2,6 +2,7 @@ import React from 'react'
 import AboutSection from './AboutSection'
 
 const About = () => {
+  
   return (
     <>
       <div className='absolute inset-0 flex flex-col justify-center items-center text-center z-10'>

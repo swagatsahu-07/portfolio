@@ -1,30 +1,59 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 const ScrollingText = () => {
+  const marqueeRef = useRef(null);
+
+  useEffect(() => {
+    // Initial infinite animation
+    marqueeRef.current.tween = gsap.to(marqueeRef.current, {
+      xPercent: -50,
+      repeat: -1,
+      duration: 50,
+      ease: "linear",
+    });
+  }, []);
+
+  // ✅ Slow down on hover smoothly
+  const handleMouseEnter = () => {
+    marqueeRef.current.tween.timeScale(0.1); // slow motion effect
+  };
+
+  // ✅ Restore speed when hover ends
+  const handleMouseLeave = () => {
+    marqueeRef.current.tween.timeScale(1); // back to normal
+  };
+
   return (
     <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className="
       w-full overflow-hidden 
-      bg-gradient-to-r from-blue-900 to-blue-500 
-      py-10 group transition-all duration-700 
-      hover:from-purple-900 hover:to-purple-600
+      bg-white
+      py-7 group transition-colors duration-300 
+      hover:bg-green-600
       "
     >
-      <div className="relative flex w-max animate-marquee">
+      <div
+        ref={marqueeRef}
+        className="relative flex w-max whitespace-nowrap"
+      >
         <span
           className="
           text-5xl font-bold uppercase tracking-wider mx-12 
-          text-white transition-colors duration-700 
-          group-hover:text-yellow-300
+          text-gray-400 transition-colors duration-300 
+          group-hover:text-white
           "
         >
           Web Designer • Frontend Developer • Creative Coder • UI/UX Enthusiast • Problem Solver •
         </span>
+
         <span
           className="
           text-5xl font-bold uppercase tracking-wider mx-12 
-          text-white transition-colors duration-700 
-          group-hover:text-yellow-300
+          text-gray-400 transition-colors duration-300 
+          group-hover:text-white
           "
         >
           Web Designer • Frontend Developer • Creative Coder • UI/UX Enthusiast • Problem Solver •

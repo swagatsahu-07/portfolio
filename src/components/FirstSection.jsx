@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
 import { Code2, Zap, Layout, Palette } from "lucide-react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const FirstSection = () => {
+   useEffect(() => {
+      // Animation: from left to center
+      gsap.fromTo(
+        ".head1",
+           { y: 150, opacity: 0 },   // start BELOW
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1.8,
+      ease: "power3.out",
+    }
+      );
+    }, []);
   return (
     <>
-    <section className="h-full bg-[#111111]  text-white py-24 px-6">
+    <section className="h-full bg-[#ffffff]  text-black py-24 px-6">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-5xl font-bold mb-8">
           Crafting digital experiences with precision & creativity
@@ -14,7 +31,7 @@ const FirstSection = () => {
           both performance and beauty.
         </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="head1 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
             <Code2 className="w-12 h-12 text-indigo-400 mb-4" />
             <h3 className="text-xl font-semibold mb-2">Full Stack</h3>
