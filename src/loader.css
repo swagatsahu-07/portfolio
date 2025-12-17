@@ -1,0 +1,91 @@
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  z-index: 9999;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.loader-overlay.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== Horizontal Straps ===== */
+.strap {
+  position: absolute;
+  top: 50%;
+  height: 64px;
+  width: 50%;
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: black;
+  white-space: nowrap;
+  transform: translateY(-50%);
+}
+
+.strap-left {
+  left: 0;
+  transform: translateX(-100%) translateY(-50%);
+  animation: slideFromLeft 1.2s ease-in-out forwards;
+}
+
+.strap-right {
+  right: 0;
+  transform: translateX(100%) translateY(-50%);
+  animation: slideFromRight 1.2s ease-in-out forwards;
+}
+
+/* ===== Vertical Lines ===== */
+.line {
+  position: absolute;
+  left: 50%;
+  width: 3px;
+  background: rgb(255, 255, 255);
+  transform: translateX(-50%);
+}
+
+.line-top {
+  top: 0;
+  height: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  animation: dropFromTop 1.2s ease-in-out forwards;
+}
+
+.line-bottom {
+  bottom: 0;
+  height: 50%;
+  transform: translateX(-50%) translateY(100%);
+  animation: riseFromBottom 1.2s ease-in-out forwards;
+}
+
+/* ===== Animations ===== */
+@keyframes slideFromLeft {
+  to {
+    transform: translateX(0) translateY(-50%);
+  }
+}
+
+@keyframes slideFromRight {
+  to {
+    transform: translateX(0) translateY(-50%);
+  }
+}
+
+@keyframes dropFromTop {
+  to {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes riseFromBottom {
+  to {
+    transform: translateX(-50%) translateY(0);
+  }
+}

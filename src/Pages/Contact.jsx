@@ -1,5 +1,6 @@
 import React from 'react'
-import AboutSection from './AboutSection'
+import AboutSection from '../components/AboutSection'
+
 
 const Contact = () => {
   return (

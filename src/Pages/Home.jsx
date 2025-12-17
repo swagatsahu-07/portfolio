@@ -1,30 +1,37 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Typewriter from "typewriter-effect";
 import ScrollingText from "../components/ScrollingText";
 import FirstSection from "../components/FirstSection";
 
+gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
   useEffect(() => {
-    // Animation: from left to center
     gsap.fromTo(
       ".head",
       { y: 150, opacity: 0 },
-      // { rotation: 360, x: 10, yPercent: 50 },   // start BELOW
-    {
-      y: 0,
-      opacity: 1,
-      duration: 4.8,
-      ease: "power3.out",
-    }
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".head", // element to observe
+          start: "top 85%", // when animation begins
+          end: "bottom 60%", // optional
+          toggleActions: "play none none reset",
+          // play once, and reset when re-scrolled upward
+        },
+      }
     );
   }, []);
 
   return (
     <>
-      <div className="absolute inset-0 z-0 w-full h-full"></div>
+      
 
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10">
+      <div className="w-full h-full absolute inset-0 flex flex-col justify-center items-center text-center z-10">
         <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white/40 via-white/60 to-white/40">
           Swagat Sahu{" "}
           <span className="text-white">
