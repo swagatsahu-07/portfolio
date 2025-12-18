@@ -30,9 +30,9 @@ const ScrollingText = () => {
       onMouseLeave={handleMouseLeave}
       className="
       w-full overflow-hidden 
-      bg-white
+      bg-[#034F46]
       py-7 group transition-colors duration-300 
-      hover:bg-green-600
+      hover:bg-blue-600
       "
     >
       <div
@@ -42,7 +42,7 @@ const ScrollingText = () => {
         <span
           className="
           text-5xl font-bold uppercase tracking-wider mx-12 
-          text-gray-400 transition-colors duration-300 
+          text-gray-100 transition-colors duration-300 
           group-hover:text-white
           "
         >

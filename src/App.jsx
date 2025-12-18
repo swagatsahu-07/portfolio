@@ -8,6 +8,7 @@ import Changelog from "./Pages/Changelog";
 import Contact from "./Pages/Contact";
 import Home from "./Pages/Home";
 import Loader from "./components/Loader";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/changelog" element={<Changelog />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
+           <Footer/>
         </BrowserRouter>
       )}
     </>

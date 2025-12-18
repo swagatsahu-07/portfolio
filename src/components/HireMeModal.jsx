@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import resume from "../assets/Swagat_Resume.pdf";
+import resume from '../assets/Swagat_Resume.pdf'
+
 
 const HireMeModal = ({ isOpen, onClose }) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [showResume, setShowResume] = useState(false);
 
   if (!isOpen) return null;
 
@@ -26,6 +26,7 @@ const HireMeModal = ({ isOpen, onClose }) => {
           setLoading(false);
           e.target.reset();
 
+          // optional: auto close modal after 2.5s
           setTimeout(() => {
             setSuccess(false);
             onClose();
@@ -40,7 +41,7 @@ const HireMeModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-      <div className="w-[440px] max-h-[90vh] overflow-y-auto rounded-2xl bg-[#0a0a0a] border border-white/20 p-6 text-gray-200">
+      <div className="w-[420px] rounded-2xl bg-[#0a0a0a] border border-white/20 p-6 text-gray-200">
 
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
@@ -54,13 +55,14 @@ const HireMeModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Resume Actions */}
-        <div className="flex gap-3 mb-4">
-          <button
-            onClick={() => setShowResume(!showResume)}
-            className="flex-1 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
+        <div className="flex gap-3 mb-6">
+          <a
+            href={resume}
+            target="_blank"
+            className="flex-1 text-center py-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
           >
-            {showResume ? "Hide Resume" : "View Resume"}
-          </button>
+            View Resume
+          </a>
 
           <a
             href={resume}
@@ -71,18 +73,9 @@ const HireMeModal = ({ isOpen, onClose }) => {
           </a>
         </div>
 
-        {/* Inline Resume Viewer */}
-        {showResume && (
-          <iframe
-            src={resume}
-            title="Resume"
-            className="w-full h-[420px] rounded-lg border border-white/20 mb-4"
-          />
-        )}
-
         <div className="border-t border-white/10 mb-4" />
 
-        {/* Success Message */}
+        {/* SUCCESS MESSAGE */}
         {success && (
           <div className="mb-4 text-center text-green-400 bg-green-400/10 border border-green-400/30 rounded-lg py-2">
             ✅ Message sent successfully
@@ -96,8 +89,8 @@ const HireMeModal = ({ isOpen, onClose }) => {
             name="from_name"
             placeholder="Your Name"
             required
-            disabled={loading}
             className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 outline-none"
+            disabled={loading}
           />
 
           <input
@@ -105,8 +98,8 @@ const HireMeModal = ({ isOpen, onClose }) => {
             name="from_email"
             placeholder="Your Email"
             required
-            disabled={loading}
             className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 outline-none"
+            disabled={loading}
           />
 
           <textarea
@@ -114,8 +107,8 @@ const HireMeModal = ({ isOpen, onClose }) => {
             placeholder="Your Message"
             rows="3"
             required
-            disabled={loading}
             className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 outline-none resize-none"
+            disabled={loading}
           />
 
           <button
@@ -136,4 +129,3 @@ const HireMeModal = ({ isOpen, onClose }) => {
 };
 
 export default HireMeModal;
-  

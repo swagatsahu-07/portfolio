@@ -29,8 +29,6 @@ const Home = () => {
 
   return (
     <>
-      
-
       <div className="w-full h-full absolute inset-0 flex flex-col justify-center items-center text-center z-10">
         <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white/40 via-white/60 to-white/40">
           Swagat Sahu{" "}
