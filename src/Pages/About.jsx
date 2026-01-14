@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import ScrollingText from "../components/ScrollingText";
 import TechStack from "../components/TechStack";
-import  Timeline  from "../components/ui/Timeline";
+import  Timeline  from "../components/Timeline";
 
 const About = () => {
   const techStackRef = useRef(null);
