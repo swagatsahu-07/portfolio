@@ -7,7 +7,7 @@ import nextLogo from "../assets/tech/Next.js.svg";
 import cssLogo from "../assets/tech/CSS3.svg";
 import sassLogo from "../assets/tech/Sass.svg";
 import bootstrapLogo from "../assets/tech/Bootstrap.svg";
-import reduxLogo from "../assets/tech/redux.svg";
+import reduxLogo from "../assets/tech/Redux.svg";
 import tailwindLogo from "../assets/tech/tailwind.svg";
 import jsLogo from "../assets/tech/JavaScript.svg";
 import htmlLogo from "../assets/tech/HTML5.svg";
