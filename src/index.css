@@ -1,10 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: "HelveticaCustom";
+  src: url("/src/assets/font/Helvetica-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
 
-body{
-  /* font-family: "Play", sans-serif; */
-  font-family: "Zen Dots", sans-serif;
+@font-face {
+  font-family: "HelveticaCustom";
+  src: url("/src/assets/font/Helvetica-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaCustom";
+  src: url("/src/assets/font/Helvetica-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaCustom";
+  src: url("/src/assets/font/Helvetica-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaCustom";
+  src: url("/src/assets/font/Helvetica-ExtraBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaCustom";
+  src: url("/src/assets/font/Helvetica-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+body {
+  font-family: "HelveticaCustom", Arial, sans-serif;
+}
+nav,footer, .hireme, .scrollText, .name, .time {
+  font-family: 'Zen Dots', sans-serif;
+}
+.mainHead{
+  font-family: 'Orbitron', sans-serif;
 }
 
 @keyframes marquee {
@@ -22,3 +69,21 @@ body{
   animation: marquee 30s linear infinite;
 }
 
+@keyframes scrollHint {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+}
+
+.animate-scrollHint {
+  animation: scrollHint 1.6s ease-in-out infinite;
+}

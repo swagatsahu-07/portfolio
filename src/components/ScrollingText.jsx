@@ -5,7 +5,6 @@ const ScrollingText = () => {
   const marqueeRef = useRef(null);
 
   useEffect(() => {
-    // Initial infinite animation
     marqueeRef.current.tween = gsap.to(marqueeRef.current, {
       xPercent: -50,
       repeat: -1,
@@ -14,14 +13,12 @@ const ScrollingText = () => {
     });
   }, []);
 
-  // ✅ Slow down on hover smoothly
   const handleMouseEnter = () => {
-    marqueeRef.current.tween.timeScale(0.1); // slow motion effect
+    marqueeRef.current.tween.timeScale(0.1);
   };
 
-  // ✅ Restore speed when hover ends
   const handleMouseLeave = () => {
-    marqueeRef.current.tween.timeScale(1); // back to normal
+    marqueeRef.current.tween.timeScale(1);
   };
 
   return (
@@ -29,10 +26,13 @@ const ScrollingText = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className="
-      w-full overflow-hidden 
-      bg-[#034F46]
-      py-7 group transition-colors duration-300 
-      hover:bg-blue-600
+        scrollText
+        w-full overflow-hidden
+        bg-[#034F46]
+        py-5 sm:py-7
+        mt-24 sm:mt-40 lg:mt-52
+        group transition-colors duration-300
+        hover:bg-blue-600
       "
     >
       <div
@@ -41,9 +41,9 @@ const ScrollingText = () => {
       >
         <span
           className="
-          text-5xl font-bold uppercase tracking-wider mx-12 
-          text-gray-100 transition-colors duration-300 
-          group-hover:text-white
+            text-6xl font-bold uppercase tracking-wider mx-12
+            text-gray-100 transition-colors duration-300
+            group-hover:text-white
           "
         >
           Web Designer • Frontend Developer • Creative Coder • UI/UX Enthusiast • Problem Solver •
@@ -51,9 +51,9 @@ const ScrollingText = () => {
 
         <span
           className="
-          text-5xl font-bold uppercase tracking-wider mx-12 
-          text-gray-400 transition-colors duration-300 
-          group-hover:text-white
+            text-6xl font-bold uppercase tracking-wider mx-12
+            text-gray-100 transition-colors duration-300
+            group-hover:text-white
           "
         >
           Web Designer • Frontend Developer • Creative Coder • UI/UX Enthusiast • Problem Solver •

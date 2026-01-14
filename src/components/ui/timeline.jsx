@@ -1,152 +1,131 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 
-export const Timeline = ({ data }) => {
-  const containerRef = useRef(null);
-  const contentRef = useRef(null);
-  const [height, setHeight] = useState(0);
+// ================= DATA =================
+const timelineData = [
+  {
+    year: "2018",
+    title: "Foundation",
+    description:
+      "Completed high school and developed an early interest in computers and technology.",
+  },
+  {
+    year: "2020",
+    title: "Academic Growth",
+    description:
+      "Completed higher secondary education, strengthening analytical and problem-solving skills.",
+  },
+  {
+    year: "2023",
+    title: "Undergraduate Focus",
+    description:
+      "Graduated with a B.Sc in Information Technology, focusing on web development fundamentals.",
+  },
+  {
+    year: "2025",
+    title: "Professional Readiness",
+    description:
+      "Completed Master of Computer Applications with hands-on project experience.",
+  },
+  {
+    year: "Present",
+    title: "Next Step",
+    description:
+      "Actively seeking opportunities to apply skills in real-world development environments.",
+    highlight: true,
+  },
+];
 
-  // Observe height
-  useEffect(() => {
-    if (!contentRef.current) return;
+// ================= ANIMATION =================
+const itemVariant = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+      ease: "easeOut",
+    },
+  },
+};
 
-    const observer = new ResizeObserver(() => {
-      setHeight(contentRef.current.offsetHeight);
-    });
-
-    observer.observe(contentRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 20%", "end 80%"],
-  });
-
-  const lineHeight = useTransform(scrollYProgress, [0, 1], [0, height]);
-  const lineOpacity = useTransform(scrollYProgress, [0, 0.05], [0, 1]);
-
+// ================= COMPONENT =================
+const Timeline = () => {
   return (
-    <section
-      ref={containerRef}
-      className="
-        relative w-full max-w-7xl mx-auto my-40
-        rounded-3xl bg-linear-to-b from-[#0F172A] via-[#020617] to-[#0F172A]
-        border border-white/10
-        shadow-[0_30px_100px_rgba(0,0,0,0.4)]
-        overflow-hidden
-      "
-    >
-      {/* HEADER */}
-      <div className="px-8 py-20 text-center">
-        <h2 className="text-4xl font-bold text-white">My Journey</h2>
+    <section className="w-full max-w-5xl mx-auto px-6 py-24">
+      {/* Header */}
+      <div className="mb-16">
+        <h2 className="text-4xl font-semibold text-white">
+          My Journey
+        </h2>
+        <p className="text-white/60 mt-2 max-w-xl">
+          A concise view of my academic progression and professional direction.
+        </p>
       </div>
 
-      {/* CONTENT */}
-      <div ref={contentRef} className="relative px-6 md:px-14 pb-32">
-        {/* CENTER LINE */}
-        <div
-          style={{ height }}
-          className="
-            absolute left-1/2 -translate-x-1/2 top-0
-            w-1 bg-white/20 z-10
-          "
-        />
+      {/* Timeline */}
+      <div className="relative space-y-10">
+        {/* Vertical Line */}
+        <div className="absolute left-3 top-0 bottom-0 w-px bg-white/10" />
 
-        {/* ACTIVE LINE */}
-        <motion.div
-          style={{ height: lineHeight, opacity: lineOpacity }}
-          className="
-            absolute left-1/2 -translate-x-1/2 top-0
-            w-1
-            bg-linear-to-b from-indigo-400 via-sky-400 to-transparent
-            shadow-[0_0_40px_rgba(99,102,241,1)]
-            rounded-full z-20
-          "
-        />
+        {timelineData.map((item, index) => (
+          <motion.div
+            key={index}
+            variants={itemVariant}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            whileHover={{ y: -4 }}
+            className={`
+              relative pl-10
+              p-6 sm:p-8
+              rounded-2xl
+              border
+              backdrop-blur-md
+              transition
+              ${
+                item.highlight
+                  ? "bg-indigo-500/10 border-indigo-400/30"
+                  : "bg-white/5 border-white/10"
+              }
+            `}
+          >
+            {/* Dot */}
+            <span
+              className={`
+                absolute left-1 top-8 w-3 h-3 rounded-full
+                ${
+                  item.highlight
+                    ? "bg-indigo-400 shadow-[0_0_12px_rgba(99,102,241,0.9)]"
+                    : "bg-white/40"
+                }
+              `}
+            />
 
-        {/* TIMELINE ITEMS */}
-        {data.map((item, index) => {
-          const isLeft = index % 2 === 0;
-
-          const start = index / data.length;
-          const end = start + 0.18;
-
-          // Dot glow
-          const glow = useTransform(
-            scrollYProgress,
-            [start, end],
-            [
-              "0 0 0px rgba(255,255,255,0)",
-              "0 0 20px rgba(56,189,248,1), 0 0 45px rgba(99,102,241,1)",
-            ]
-          );
-
-          // Content animation
-          const contentOpacity = useTransform(
-            scrollYProgress,
-            [start + 0.03, end],
-            [0, 1]
-          );
-
-          const contentX = useTransform(
-            scrollYProgress,
-            [start + 0.03, end],
-            [isLeft ? -40 : 40, 0]
-          );
-
-          return (
-            <div
-              key={index}
-              className="relative flex items-center min-h-[180px]"
-            >
-              {/* LEFT CONTENT */}
-              <motion.div
-                style={{ opacity: contentOpacity, x: contentX }}
-                className={`w-1/2 pr-12 text-right ${isLeft ? "" : "invisible"}`}
+            {/* Content */}
+            <div className="flex items-center gap-4 mb-2">
+              <span
+                className={`text-sm font-medium ${
+                  item.highlight ? "text-indigo-300" : "text-indigo-400"
+                }`}
               >
-                {isLeft && (
-                  <>
-                    <h3 className="text-2xl font-semibold text-white">
-                      {item.title}
-                    </h3>
-                    <div className="mt-2 text-gray-300">
-                      {item.content}
-                    </div>
-                  </>
-                )}
-              </motion.div>
-
-              {/* DOT */}
-              <div className="relative z-30">
-                <motion.span
-                  style={{ boxShadow: glow }}
-                  className="w-4 h-4 rounded-full bg-white block"
-                />
-              </div>
-
-              {/* RIGHT CONTENT */}
-              <motion.div
-                style={{ opacity: contentOpacity, x: contentX }}
-                className={`w-1/2 pl-12 ${!isLeft ? "" : "invisible"}`}
-              >
-                {!isLeft && (
-                  <>
-                    <h3 className="text-2xl font-semibold text-white">
-                      {item.title}
-                    </h3>
-                    <div className="mt-2 text-gray-300">
-                      {item.content}
-                    </div>
-                  </>
-                )}
-              </motion.div>
+                {item.year}
+              </span>
+              <h3 className="text-xl font-medium text-white">
+                {item.title}
+              </h3>
             </div>
-          );
-        })}
+
+            <p className="text-white/70 leading-relaxed">
+              {item.description}
+            </p>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
 };
+
+export default Timeline;

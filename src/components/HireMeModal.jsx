@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import resume from '../assets/Swagat_Resume.pdf'
-
+import resume from "../assets/Swagat_Resume.pdf";
 
 const HireMeModal = ({ isOpen, onClose }) => {
   const [loading, setLoading] = useState(false);
@@ -26,7 +25,6 @@ const HireMeModal = ({ isOpen, onClose }) => {
           setLoading(false);
           e.target.reset();
 
-          // optional: auto close modal after 2.5s
           setTimeout(() => {
             setSuccess(false);
             onClose();
@@ -40,8 +38,9 @@ const HireMeModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-      <div className="w-[420px] rounded-2xl bg-[#0a0a0a] border border-white/20 p-6 text-gray-200">
+    <div className="hireme fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+      {/* MODAL */}
+      <div className="w-full max-w-[420px] rounded-2xl bg-[#0a0a0a] border border-white/20 p-6 text-gray-200">
 
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
@@ -49,13 +48,14 @@ const HireMeModal = ({ isOpen, onClose }) => {
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-white"
+            aria-label="Close modal"
           >
             ✕
           </button>
         </div>
 
         {/* Resume Actions */}
-        <div className="flex gap-3 mb-6">
+        <div className="flex flex-col sm:flex-row gap-3 mb-6">
           <a
             href={resume}
             target="_blank"
@@ -82,15 +82,15 @@ const HireMeModal = ({ isOpen, onClose }) => {
           </div>
         )}
 
-        {/* Contact Form */}
+        {/* FORM */}
         <form onSubmit={sendEmail} className="space-y-3">
           <input
             type="text"
             name="from_name"
             placeholder="Your Name"
             required
-            className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 outline-none"
             disabled={loading}
+            className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 outline-none"
           />
 
           <input
@@ -98,8 +98,8 @@ const HireMeModal = ({ isOpen, onClose }) => {
             name="from_email"
             placeholder="Your Email"
             required
-            className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 outline-none"
             disabled={loading}
+            className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 outline-none"
           />
 
           <textarea
@@ -107,8 +107,8 @@ const HireMeModal = ({ isOpen, onClose }) => {
             placeholder="Your Message"
             rows="3"
             required
-            className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 outline-none resize-none"
             disabled={loading}
+            className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/20 outline-none resize-none"
           />
 
           <button

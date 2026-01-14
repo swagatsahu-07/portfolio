@@ -28,9 +28,11 @@ const FirstSection = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-linear-to-br from-[#06070a] via-[#060f28] to-[#10151f]">
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 sm:py-24 lg:py-32">
+
         {/* TOP: VIDEO + TEXT */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 sm:mb-20">
+
           {/* VIDEO */}
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <video
@@ -39,15 +41,14 @@ const FirstSection = () => {
               loop
               muted
               playsInline
-              className="w-full h-full object-fit"
+              className="w-full h-full object-cover"
             />
-
             <div className="absolute inset-0 bg-black/20 pointer-events-none" />
           </div>
 
           {/* TEXT */}
-          <div className="text-left flex flex-col justify-center h-[530px]">
-            <h2 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+          <div className="text-left flex flex-col justify-center lg:h-[530px]">
+            <h2 className="text-5xl md:text-6xl font-bold text-[#FFFFEB] leading-tight mb-6">
               Crafting digital experiences
               <span className="block text-white/60">
                 with precision & creativity
@@ -57,7 +58,7 @@ const FirstSection = () => {
         </div>
 
         {/* FEATURES */}
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
               Icon: Code2,
@@ -89,8 +90,12 @@ const FirstSection = () => {
               className="feature rounded-2xl bg-white/5 backdrop-blur-xl p-8 border border-white/10"
             >
               <Icon className={`w-10 h-10 ${color} mb-6`} />
-              <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
+              <h3 className="text-xl font-semibold text-white mb-2">
+                {title}
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {desc}
+              </p>
             </div>
           ))}
         </div>
